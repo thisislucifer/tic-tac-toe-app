@@ -32,16 +32,14 @@ export class AppComponent {
     }else{
       return this.toastr.info('Already Filled!')
     }
-    
+        
+    this.checkIsWinner()
     // check if its a tie!
     if (!this.winMessage &&
-      this.tieMessage &&
       this.itemArray.length === this.itemArray.filter(function(x){ return x !== 'empty'; }).length
     ){
       this.tieMessage = 'Its a TIE!!'
     }
-
-    this.checkIsWinner()
   }
 
   //arrow function -->
