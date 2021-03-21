@@ -34,7 +34,9 @@ export class AppComponent {
     }
     
     // check if its a tie!
-    if (this.itemArray.length === this.itemArray.filter(function(x){ return x !== "empty"; }).length
+    if (!this.winMessage &&
+      this.tieMessage &&
+      this.itemArray.length === this.itemArray.filter(function(x){ return x !== 'empty'; }).length
     ){
       this.tieMessage = 'Its a TIE!!'
     }
@@ -45,6 +47,7 @@ export class AppComponent {
   //arrow function -->
   reloadGame = () =>{
     this.winMessage = '';
+    this.tieMessage = '';
     this.isCross = false;
     this.itemArray = new Array(9).fill('empty')
   }
